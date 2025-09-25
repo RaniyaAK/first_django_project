@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block title %}
+  My Tennis Club - List of all members
+{% endblock %}
+
+{% block content %}
+
+ <!-- <p><a href="/">HOME</a></p> -->
+
+<h1>Update Members</h1>
+   <form action = "{% url 'update_member' member.id %}" method="post">
+    {% csrf_token %}
+     <label>First Name:</label>
+     <input type = text name="first_name" value="{{ member.firstname }}">
+     <label>Last Name:</label>
+     <input type = text name="last_name" value="{{ member.lastname }}">
+     <input type="submit" value="Submit">
+   </form>
+   
+
+
+{% endblock %}

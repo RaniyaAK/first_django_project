@@ -1,4 +1,3 @@
-
 {% extends "master.html" %}
 
 {% block title %}
@@ -8,14 +7,36 @@
 {% block content %}
 
  <p><a href="/">HOME</a></p>
-
+ 
 <h1>Members</h1>
+<table border="3" cellpadding="3" >
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Delete</th>
+    <th>Update</th>
+    {% for x in mymembers %}
+  </tr>
   
-<ul>
+  <tr>
+    <!-- <td><a href="/details">{{ x.id  }}</a></td> -->
+    <td><a href="/all_members/details/{{x.id}}">{{ x.id  }}</a></td>
+    <td>{{ x.firstname }}</td>
+    <td>{{ x.lastname }}</td>
+    <td><a href="delete_member/{{x.id }}">Delete</a></td>
+    <td><a href="update_member/{{x.id }}">Update</a></td>
+  </tr>
+  {% endfor %}
+</table>
+  
+<!-- <ul>
   {% for x in mymembers %}
     <li><a href='details/{{ x.id  }}'>{{ x.firstname }} {{ x.lastname }}</a></li>
   {% endfor %}
-</ul>
+</ul> -->
+<p><a href="/add">Add members</a></p>
+<!-- <p><a href="/update">Update members</a></p> -->
 {% endblock %}
 
 

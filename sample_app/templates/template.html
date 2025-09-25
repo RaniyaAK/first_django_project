@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+
+{% load static %}
+
+{% block styles %}
+ <style>
+    body{
+        background-image: url("{% static 'images/pic.jpg' %}");
+        background-size: cover;  
+        background-repeat: no-repeat;
+    }
+ </style>
+{% endblock %}
+
+{% block content %}
+
+<!-- <link rel="stylesheet" href="{% static 'myfirst.css' %}"> -->
+ <!-- <style>
+ </style> -->
+
+ {% for x in fruits %}
+   <h1>{{ x }}</h1>
+ {% endfor %}
+
+<p>In views.py you can see what the fruits variable looks like.</p>
+
+{% endblock %}
+
